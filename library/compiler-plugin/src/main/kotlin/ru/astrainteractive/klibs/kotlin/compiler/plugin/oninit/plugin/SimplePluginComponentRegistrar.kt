@@ -1,0 +1,20 @@
+package ru.astrainteractive.klibs.kotlin.compiler.plugin.oninit.plugin
+
+import org.jetbrains.kotlin.backend.common.extensions.IrGenerationExtension
+import org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar
+import ru.astrainteractive.klibs.kotlin.compiler.plugin.oninit.ir.SimpleIrGenerationExtension
+import org.jetbrains.kotlin.config.CompilerConfiguration
+import org.jetbrains.kotlin.fir.extensions.FirExtensionRegistrarAdapter
+import ru.astrainteractive.klibs.kotlin.compiler.plugin.oninit.BuildConfig
+
+class SimplePluginComponentRegistrar : CompilerPluginRegistrar() {
+    override val pluginId: String
+        get() = BuildConfig.KOTLIN_PLUGIN_ID
+    override val supportsK2: Boolean
+        get() = true
+
+    override fun ExtensionStorage.registerExtensions(configuration: CompilerConfiguration) {
+        FirExtensionRegistrarAdapter.registerExtension(SimplePluginRegistrar())
+        IrGenerationExtension.registerExtension(SimpleIrGenerationExtension())
+    }
+}
