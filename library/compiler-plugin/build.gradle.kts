@@ -1,8 +1,7 @@
 plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.buildconfig)
-    alias(libs.plugins.gradle.java.test.fixtures)
-    alias(libs.plugins.gradle.idea)
+    id("java-test-fixtures" )
 }
 
 sourceSets {
@@ -16,10 +15,6 @@ sourceSets {
         kotlin.setSrcDirs(listOf("src/testData/kotlin"))
         resources.setSrcDirs(listOf("src/testData/res"))
     }
-}
-
-idea {
-    module.generatedSourceDirs.add(projectDir.resolve("test-gen"))
 }
 
 val annotationsRuntimeClasspath: Configuration by configurations.creating { isTransitive = false }
