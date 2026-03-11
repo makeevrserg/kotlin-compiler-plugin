@@ -6,14 +6,18 @@ import org.jetbrains.kotlin.generators.dsl.junit5.generateTestGroupSuiteWithJUni
 
 fun main() {
     generateTestGroupSuiteWithJUnit5 {
-        testGroup(testDataRoot = "compiler-plugin/src/testData/res", testsRoot = "compiler-plugin/src/test-gen/java") {
-            testClass<AbstractJvmDiagnosticTest> {
-                model("diagnostics")
-            }
+        testGroup(
+            testDataRoot = "compiler-plugin/src/testData/res",
+            testsRoot = "compiler-plugin/src/test-gen/java",
+            init = {
+                testClass<AbstractJvmDiagnosticTest> {
+                    model("diagnostics")
+                }
 
-            testClass<AbstractJvmBoxTest> {
-                model("box")
+                testClass<AbstractJvmBoxTest> {
+                    model("box")
+                }
             }
-        }
+        )
     }
 }

@@ -19,12 +19,17 @@ fun TestConfigurationBuilder.configureAnnotations() {
     useCustomRuntimeClasspathProviders(::PluginAnnotationsClasspathProvider)
 }
 
-private class PluginAnnotationsProvider(testServices: TestServices) : EnvironmentConfigurator(testServices) {
-    override fun configureCompilerConfiguration(configuration: CompilerConfiguration, module: TestModule) {
-        configuration.addJvmClasspathRoots(annotationsRuntimeClasspath)
-    }
+private class PluginAnnotationsProvider(
+    testServices: TestServices
+) : EnvironmentConfigurator(testServices) {
+    override fun configureCompilerConfiguration(
+        configuration: CompilerConfiguration,
+        module: TestModule
+    ): Unit = configuration.addJvmClasspathRoots(annotationsRuntimeClasspath)
 }
 
-private class PluginAnnotationsClasspathProvider(testServices: TestServices) : RuntimeClasspathProvider(testServices) {
+private class PluginAnnotationsClasspathProvider(
+    testServices: TestServices
+) : RuntimeClasspathProvider(testServices) {
     override fun runtimeClassPaths(module: TestModule) = annotationsRuntimeClasspath
 }

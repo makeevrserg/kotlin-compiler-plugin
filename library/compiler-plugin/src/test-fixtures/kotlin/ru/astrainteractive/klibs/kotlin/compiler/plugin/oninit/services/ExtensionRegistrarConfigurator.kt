@@ -13,7 +13,9 @@ fun TestConfigurationBuilder.configurePlugin() {
     configureAnnotations()
 }
 
-private class ExtensionRegistrarConfigurator(testServices: TestServices) : EnvironmentConfigurator(testServices) {
+private class ExtensionRegistrarConfigurator(
+    testServices: TestServices
+) : EnvironmentConfigurator(testServices) {
     private val registrar = SimplePluginComponentRegistrar()
     override fun CompilerPluginRegistrar.ExtensionStorage.registerCompilerExtensions(
         module: TestModule,
