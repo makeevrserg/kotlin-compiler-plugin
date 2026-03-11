@@ -1,6 +1,5 @@
 // RUN_PIPELINE_TILL: FRONTEND
 
-
 import ru.astrainteractive.klibs.compilerplugin.callinit.CallOnInit
 
 class MyClass {

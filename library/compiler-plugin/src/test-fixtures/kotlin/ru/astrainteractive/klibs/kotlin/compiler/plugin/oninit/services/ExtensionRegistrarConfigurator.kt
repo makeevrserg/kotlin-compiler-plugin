@@ -1,12 +1,12 @@
 package ru.astrainteractive.klibs.kotlin.compiler.plugin.oninit.services
 
 import org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar
-import ru.astrainteractive.klibs.kotlin.compiler.plugin.oninit.plugin.SimplePluginComponentRegistrar
 import org.jetbrains.kotlin.config.CompilerConfiguration
 import org.jetbrains.kotlin.test.builders.TestConfigurationBuilder
 import org.jetbrains.kotlin.test.model.TestModule
 import org.jetbrains.kotlin.test.services.EnvironmentConfigurator
 import org.jetbrains.kotlin.test.services.TestServices
+import ru.astrainteractive.klibs.kotlin.compiler.plugin.oninit.plugin.SimplePluginComponentRegistrar
 
 fun TestConfigurationBuilder.configurePlugin() {
     useConfigurators(::ExtensionRegistrarConfigurator)

@@ -8,7 +8,7 @@ object CallOnInitDiagnosticRendererFactory : BaseDiagnosticRendererFactory() {
         map.put(
             factory = CallOnInitErrors.EXPLICIT_CALL_TO_CALL_ON_INIT_FUNCTION,
             message = "Functions annotated with @CallOnInit should not be called explicitly." +
-                    " They are automatically called during class initialization."
+                " They are automatically called during class initialization."
         )
     }
 }

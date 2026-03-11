@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.buildconfig)
-    id("java-test-fixtures" )
+    id("java-test-fixtures")
 }
 
 sourceSets {
@@ -102,4 +102,3 @@ val generateTests by tasks.registering(JavaExec::class) {
 tasks.compileTestKotlin {
     dependsOn(generateTests)
 }
-

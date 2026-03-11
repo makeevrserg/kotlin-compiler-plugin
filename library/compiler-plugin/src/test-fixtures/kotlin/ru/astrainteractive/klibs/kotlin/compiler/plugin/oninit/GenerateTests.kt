@@ -1,8 +1,8 @@
 package ru.astrainteractive.klibs.kotlin.compiler.plugin.oninit
 
+import org.jetbrains.kotlin.generators.dsl.junit5.generateTestGroupSuiteWithJUnit5
 import ru.astrainteractive.klibs.kotlin.compiler.plugin.oninit.runners.AbstractJvmBoxTest
 import ru.astrainteractive.klibs.kotlin.compiler.plugin.oninit.runners.AbstractJvmDiagnosticTest
-import org.jetbrains.kotlin.generators.dsl.junit5.generateTestGroupSuiteWithJUnit5
 
 fun main() {
     generateTestGroupSuiteWithJUnit5 {
