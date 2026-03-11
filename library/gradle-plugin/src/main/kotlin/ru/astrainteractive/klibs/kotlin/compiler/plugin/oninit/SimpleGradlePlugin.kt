@@ -32,14 +32,12 @@ class SimpleGradlePlugin : KotlinCompilerPluginSupportPlugin {
     ): Provider<List<SubpluginOption>> {
         val project = kotlinCompilation.target.project
 
-        kotlinCompilation.dependencies { implementation(ANNOTATIONS_LIBRARY_COORDINATES) }
-        if (kotlinCompilation.implementationConfigurationName == "metadataCompilationImplementation") {
+        kotlinCompilation.defaultSourceSet.dependencies { implementation(ANNOTATIONS_LIBRARY_COORDINATES) }
+        if (kotlinCompilation.defaultSourceSet.name == "commonMain") {
             project.dependencies.add("commonMainImplementation", ANNOTATIONS_LIBRARY_COORDINATES)
         }
 
         return project.provider {
-            val extension = project.extensions.getByType(SimpleGradleExtension::class.java)
-
             emptyList()
         }
     }

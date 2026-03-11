@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "2.3.0"
+    alias(libs.plugins.kotlin.jvm)
     id("ru.astrainteractive.klibs.kotlin.compiler.plugin.oninit")
     application
 }
